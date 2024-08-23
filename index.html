@@ -29,7 +29,9 @@
 
         .invitation-card h1 {
             font-size: 32px;
-            color: #ff6f91;
+            background: linear-gradient(to right, #ff6f91 50%, #6fbaff 50%);
+            -webkit-background-clip: text;
+            color: transparent;
             margin-bottom: 20px;
         }
 
@@ -42,6 +44,13 @@
 
         .invitation-card strong {
             font-weight: bold;
+        }
+
+        .date-time strong {
+            color: #6fbaff;
+        }
+
+        .venue-dresscode strong {
             color: #ff6f91;
         }
 
@@ -82,6 +91,24 @@
             font-size: 24px;
             margin-top: 15px;
         }
+
+        .interactive-img {
+            width: 100px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .interactive-img:hover {
+            transform: scale(1.1);
+        }
+
+        #result-text {
+            font-size: 24px;
+            color: #ff6f91;
+            margin-top: 20px;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -92,17 +119,28 @@
         <div class="invitation-content">
             <h1>You're Invited!</h1>
             <p>Join us for a special moment as we reveal the gender of our little one!</p>
-            <p><strong>Date:</strong> September 28, 2024<br>
-               <strong>Time:</strong> 3:00 PM onwards<br>
-               <strong>Venue:</strong><br>
+            <p class="date-time"><strong>Date:</strong> September 28, 2024<br>
+               <strong>Time:</strong> 3:00 PM onwards</p>
+            <p class="venue-dresscode"><strong>Venue:</strong><br>
                11620 Montego Street<br>
-               Richmond, BC V6X 1H4
-            </p>
+               Richmond, BC V6X 1H4</p>
+            <p class="venue-dresscode"><strong>Dress Code:</strong> Wear pink or blue to cast your vote! (Not mandatory)</p>
             <p>We can't wait to celebrate with you!</p>
-            <p><strong>Dress Code:</strong> Wear pink or blue to cast your vote! (Not mandatory)</p>
             <p>Come and enjoy an afternoon filled with joy, surprises, and a touch of magic as we find out if it's a boy or girl!</p>
+            <div class="interactive-images">
+                <img src="https://raw.githubusercontent.com/Sathya5627/Gender-Reveal-Invitation/main/baby-boy.png" alt="Baby Boy" class="interactive-img" onclick="showText('Is it a boy?')">
+                <img src="https://raw.githubusercontent.com/Sathya5627/Gender-Reveal-Invitation/main/baby-girl.png" alt="Baby Girl" class="interactive-img" onclick="showText('Is it a girl?')">
+            </div>
+            <p id="result-text"></p>
             <p class="icon">🎀👶🎉</p>
         </div>
     </div>
+    <script>
+        function showText(text) {
+            var resultText = document.getElementById('result-text');
+            resultText.textContent = text;
+            resultText.style.visibility = 'visible';
+        }
+    </script>
 </body>
 </html>
